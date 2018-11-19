@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import {Header} from './src/components/common';
 import combineReducers from './src/components/reducers';
+import LibraryList from './src/components/LibraryList'
 
 export default class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ export default class App extends React.Component {
       <Provider store = {createStore(combineReducers)}>  
         <View style={styles.container}>
           <Header headerText={'Tech Stack'}></Header>
+          <LibraryList/>
           <Text style={styles.footStyle}>Trong Binh Le</Text>
         </View>
       </Provider>
@@ -33,3 +35,4 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   }
 });
+  
