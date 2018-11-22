@@ -3,13 +3,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux'; 
 import { createStore } from 'redux';
 import {Header} from './src/components/common';
-import combineReducers from './src/components/reducers';
+import combineReducers from './src/reducers';
 import LibraryList from './src/components/LibraryList'
 
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store = {createStore(combineReducers)}>  
+      <Provider store = {createStore(combineReducers)}>
         <View style={styles.container}>
           <Header headerText={'Tech Stack'}></Header>
           <LibraryList/>
