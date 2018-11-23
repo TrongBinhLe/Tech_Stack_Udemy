@@ -1,17 +1,34 @@
 import React, {Component} from 'react';
-import {Text,StyleSheet,TouchableWithoutFeedback,View} from 'react-native';
+import {Text,
+        StyleSheet,
+        TouchableWithoutFeedback,
+        View,
+        LayoutAnimation,
+        NativeModules
+    } from 'react-native';
 import {CardSection} from './common';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 
-class ListItem extends Component{
+const { UIManager } = NativeModules;
 
+UIManager.setLayoutAnimationEnabledExperimental &&
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+
+class ListItem extends Component{
+    
+    componentWillUpdate(){
+    LayoutAnimation.spring();
+    }
     renderContent(){
-        const{expanded,library} = this.props
+        const {descriptStyle} = styles;
+        const{expanded,library} = this.props;
         console.log(library.description);
         if(expanded){
             return (
-                <Text>{library.description}</Text>
+                <CardSection>
+                    <Text>{library.description}</Text>
+                </CardSection>
             );
         }
     }
@@ -37,6 +54,9 @@ const styles =  StyleSheet.create({
     titleStyle : {
         fontSize : 18,
         paddingLeft: 15
+    },
+    descriptStyle:{
+      flex: 1,  
     }
 })
  const mapStateToProps = (state, ownProps) => {

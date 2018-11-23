@@ -30,8 +30,8 @@ export default connect(mapStateToProps)(LibraryList);
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: 150,
-      marginBottom: 150,
+      marginTop: 25,
+      marginBottom: 25,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#5fff',
